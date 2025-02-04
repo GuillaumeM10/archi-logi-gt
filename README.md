@@ -10,3 +10,7 @@
 ## Techno:
 
 ## Diagramme C4
+
+![alt text](./diagram/c4-0.jpg)
+![alt text](./diagram/c4-1.jpg)
+![alt text](./diagram/c4-2.jpg)
