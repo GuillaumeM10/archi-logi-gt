@@ -13,4 +13,5 @@
 
 ![alt text](./diagram/c4-0.jpg)
 ![alt text](./diagram/c4-1.jpg)
-![alt text](./diagram/c4-2.jpg)
+![alt text](./diagram/c4-2.png)
+![alt text](./diagram/c4-3.png)
