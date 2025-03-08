@@ -15,3 +15,10 @@
 ![alt text](./diagram/c4-1.jpg)
 ![alt text](./diagram/c4-2.png)
 ![alt text](./diagram/c4-3.png)
+
+## Launch project
+
+From project root:
+
+- Install dependencies : ```pnpm i```
+- Run back : ```pnpm dev:api```
