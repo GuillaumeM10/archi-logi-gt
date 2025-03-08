@@ -1,0 +1,29 @@
+{
+  "name": "yday_spottobe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:api": "pnpm --filter api start:dev",
+    "lint:api": "pnpm --filter api link",
+    "build:packages": "pnpm --filter @spottobe/dtos build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lint-staged": "^15.2.10"
+  },
+  "lint-staged": {
+    "apps/ui/**/*.{js,ts,jsx,tsx}": [
+      "pnpm --filter ui lint"
+    ],
+    "apps/api/**/*.{js,ts,jsx,tsx}": [
+      "pnpm --filter api run lint"
+    ]
+  },
+  "dependencies": {
+    "yday_spottobe": "file:"
+  }
+}
