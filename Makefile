@@ -3,6 +3,11 @@ api:
 	@echo "start api"
 	@pnpm run dev:api
 
+.PHONY : ui
+ui:
+	@echo "start ui"
+	@pnpm run dev:ui
+
 .PHONY: up
 up:
 	docker compose -f ./docker-compose.dev.yml up -d

@@ -36,7 +36,6 @@ export default tseslint.config(
       'perfectionist/sort-array-includes': 'error',
       'perfectionist/sort-enums': 'error',
 
-      // We want to organize by concepts
       'perfectionist/sort-classes': 'off',
       'perfectionist/sort-interfaces': [
         'error',
@@ -45,8 +44,6 @@ export default tseslint.config(
           partitionByNewLine: true,
           groupKind: 'required-first',
           groups: ['top', 'unknown', 'multiline'],
-          // todo: add this line when perfectionist is updated
-          // groups: ['top', 'unknown', 'method', 'multiline'],
           customGroups: {
             top: ['id'],
           },
@@ -59,22 +56,18 @@ export default tseslint.config(
           partitionByNewLine: true,
           groupKind: 'required-first',
           groups: ['top', 'unknown', 'multiline'],
-          // todo: add this line when perfectionist is updated
-          // groups: ['top', 'unknown', 'method', 'multiline'],
           customGroups: {
             top: ['id'],
           },
         },
       ],
 
-      // Object order may be used for style or navigation
       'perfectionist/sort-jsx-props': 'off',
       'perfectionist/sort-vue-attributes': 'off',
       'perfectionist/sort-astro-attributes': 'off',
       'perfectionist/sort-svelte-attributes': 'off',
       'perfectionist/sort-objects': 'off',
 
-      // We want to organize by concepts
       'perfectionist/sort-intersection-types': [
         'error',
         {
@@ -116,7 +109,6 @@ export default tseslint.config(
         },
       ],
 
-      // other rules
       'perfectionist/sort-maps': [
         'error',
         {

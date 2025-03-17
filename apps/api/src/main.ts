@@ -1,13 +1,10 @@
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './filter/restExceptionFIlter';
-import { error } from 'console';
 
-/**
- *
- */
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -25,8 +22,22 @@ async function bootstrap() {
       },
     }),
   );
+
+  const config = new DocumentBuilder()
+    .setTitle('Skyjo Game API')
+    .setDescription('API for playing the Skyjo card game')
+    .setVersion('1.0')
+    .addTag('authentication', 'Authentication endpoints')
+    .addTag('users', 'User management endpoints')
+    .addTag('game', 'Game management and gameplay endpoints')
+    .addBearerAuth()
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
   await app.listen(process.env.PORT ?? 3000);
-  console.log(`Application is running on: localhost:${process.env.PORT ?? 3000}`);
+  console.log(`Application is running on: http://localhost:${process.env.PORT ?? 3000}`);
+  console.log(`Swagger documentation is available at: http://localhost:${process.env.PORT ?? 3000}/api`);
 }
 
 bootstrap()

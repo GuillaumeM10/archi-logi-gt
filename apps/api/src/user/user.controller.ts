@@ -8,26 +8,29 @@ import {
   Post,
   Req,
 } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiParam } from '@nestjs/swagger';
 import {
   CreateUserDto,
   Role,
   UpdateUserDto,
-} from '@spottobe/dtos/dist/userDTO';
+} from '@archi-logi-gt/dtos/dist/userDTO';
 import { plainToInstance } from 'class-transformer';
 
 import { User } from './entities/user';
 import { UserService } from './user.service';
 
+@ApiTags('users')
+@ApiBearerAuth()
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @ApiOperation({ summary: 'Create a new user' })
+  @ApiResponse({ status: 201, description: 'User created successfully' })
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     const user = new CreateUserDto(createUserDto);
-
     const data = await this.userService.create(user);
-
     return {
       success: true,
       data: plainToInstance(User, data),
@@ -35,6 +38,8 @@ export class UserController {
     };
   }
 
+  @ApiOperation({ summary: 'Get all users' })
+  @ApiResponse({ status: 200, description: 'Return all users' })
   @Get()
   async findAll() {
     const data: User[] = await this.userService.findAll();
@@ -45,6 +50,10 @@ export class UserController {
     };
   }
 
+  @ApiOperation({ summary: 'Get a user by ID' })
+  @ApiParam({ name: 'id', description: 'User ID' })
+  @ApiResponse({ status: 200, description: 'Return the user' })
+  @ApiResponse({ status: 404, description: 'User not found' })
   @Get(':id')
   async findOne(@Param('id') id: string) {
     const data = await this.userService.findById(+id);
@@ -55,6 +64,9 @@ export class UserController {
     };
   }
 
+  @ApiOperation({ summary: 'Update a user' })
+  @ApiParam({ name: 'id', description: 'User ID' })
+  @ApiResponse({ status: 200, description: 'User updated successfully' })
   @Patch(':id')
   async update(
     @Req() req: Request,
@@ -72,6 +84,9 @@ export class UserController {
     };
   }
 
+  @ApiOperation({ summary: 'Delete a user' })
+  @ApiParam({ name: 'id', description: 'User ID' })
+  @ApiResponse({ status: 200, description: 'User deleted successfully' })
   @Delete(':id')
   async remove(@Param('id') id: string) {
     const data = await this.userService.remove(+id);

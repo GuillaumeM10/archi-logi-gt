@@ -44,7 +44,7 @@ export default tseslint.config(
           args: 'none',
         },
       ],
-      '@typescript-eslint/await-thenable': 'off', // useful but slow
+      '@typescript-eslint/await-thenable': 'off',
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/consistent-type-assertions': 'off',
@@ -55,7 +55,7 @@ export default tseslint.config(
           fixStyle: 'inline-type-imports',
         },
       ],
-      '@typescript-eslint/no-misused-promises': 'off', // useful but slow
+      '@typescript-eslint/no-misused-promises': 'off',
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
       '@typescript-eslint/no-extra-non-null-assertion': 'error',
       '@typescript-eslint/return-await': 'error',

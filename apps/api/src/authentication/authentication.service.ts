@@ -11,8 +11,8 @@ import {
   LoginDto,
   PasswordDto,
   SignUpDto,
-} from '@spottobe/dtos/dist/authDto';
-import { CreateUserDto, Role } from '@spottobe/dtos/dist/userDTO';
+} from '@archi-logi-gt/dtos/dist/authDto';
+import { CreateUserDto, Role } from '@archi-logi-gt/dtos/dist/userDTO';
 import * as bcrypt from 'bcrypt';
 import { plainToInstance } from 'class-transformer';
 // eslint-disable-next-line @typescript-eslint/naming-convention

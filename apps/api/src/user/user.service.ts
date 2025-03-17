@@ -1,7 +1,7 @@
 import {BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { EmailDto } from '@spottobe/dtos/dist/authDto';
-import { CreateUserDto, UpdateUserDto } from '@spottobe/dtos/dist/userDTO';
+import { EmailDto } from '@archi-logi-gt/dtos/dist/authDto';
+import { CreateUserDto, UpdateUserDto } from '@archi-logi-gt/dtos/dist/userDTO';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 

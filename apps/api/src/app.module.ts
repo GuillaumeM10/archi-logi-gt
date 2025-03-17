@@ -11,6 +11,7 @@ import { EmailModule } from './email/email.module';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { UserModule } from './user/user.module';
 import { PasswordUtilsService } from './utils/password-utils.service';
+import { GameModule } from './game/game.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { PasswordUtilsService } from './utils/password-utils.service';
     UserModule,
     AuthenticationModule,
     EmailModule,
+    GameModule,
   ],
   controllers: [AppController],
   providers: [

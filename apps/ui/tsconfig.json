@@ -1,0 +1,30 @@
+{
+  "extends": "@archi-logi-gt/tsconfig/react.json",
+  "files": [],
+  "include": [
+    "**/*.js",
+    "**/*.json",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "./dist/**/*",
+    "node_modules",
+    "tmp",
+    "dist",
+    "**/*spec.ts",
+    "**/*test.ts",
+    "**/*spec.tsx",
+    "**/*test.tsx"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "allowJs": true,
+    "types": ["vite/client"]
+  }
+}

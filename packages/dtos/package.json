@@ -1,8 +1,9 @@
 {
-  "name": "@spottobe/dtos",
+  "name": "@archi-logi-gt/dtos",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "postinstall": "pnpm run build"
@@ -11,8 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@archi-logi-gt/dtos": "file:",
     "@nestjs/mapped-types": "^2.0.6",
-    "@spottobe/dtos": "file:",
+    "@nestjs/swagger": "^11.0.6",
     "class-validator": "^0.14.1"
+  },
+  "peerDependencies": {
+    "class-transformer": "^0.5.1"
   }
 }

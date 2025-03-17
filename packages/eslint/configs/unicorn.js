@@ -5,8 +5,6 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(pluginUnicorn.configs['flat/recommended'], {
   rules: {
-    // conflicts with prettier, @see https://github.com/prettier/eslint-config-prettier/issues/51
-    // and https://github.com/prettier/prettier/issues/5158
     'unicorn/number-literal-case': 'off',
     'unicorn/filename-case': 'off',
     'unicorn/no-fn-reference-in-iterator': 'off',
@@ -23,7 +21,6 @@ export default tseslint.config(pluginUnicorn.configs['flat/recommended'], {
 
     'unicorn/no-anonymous-default-export': 'off',
 
-    /** Those rules does not work correctly atm */
     'unicorn/expiring-todo-comments': 'off',
   },
 });
