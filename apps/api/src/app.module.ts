@@ -3,8 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthenticationService } from './authentication/authentication.service';
 import { EmailModule } from './email/email.module';
@@ -34,9 +32,8 @@ import { GameModule } from './game/game.module';
     EmailModule,
     GameModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [
-    AppService,
     PasswordUtilsService,
     AuthenticationService,
     {

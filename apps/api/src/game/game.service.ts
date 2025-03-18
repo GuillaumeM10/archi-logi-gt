@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateGameDto, Status, Cards, CardDetails, UpdateGameDto } from '@archi-logi-gt/dtos/dist/gameDto';
 import { Game } from './entities/game.entity';
-import { User } from '../user/entities/user';
 import { UserService } from '../user/user.service';
 
 @Injectable()
