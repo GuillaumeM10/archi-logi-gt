@@ -1,36 +1,40 @@
 # Projet Skyjo
+
+___
+## IMPORTANT
+**Le répertoire possède deux branches :**
+- **main** : contient l'application des différents patterns, un jeu fonctionnel via API et une interface homme machine (bonus).
+- **bonus** : contient l'application jouable en CLI, une clean architecture et des tests unitaires. (les instruction pour lancer l'application en CLI sont dans le README.md de la branche bonus)
+___
+
+
 ## Table des matières
-- [IMPORTANT](#important)
 - [Le projet, en quelques lignes](#le-projet-en-quelques-lignes)
 - [Membres](#membres)
 - [Lancer le projet](#lancer-le-projet)
-  - [Prerequis](#prerequis)
+  - [Prérequis](#prérequis)
   - [Installation](#installation)
 - [Les Patterns utilisés](#les-patterns-utilisés)
   - [Singleton](#singleton)
   - [State](#state)
   - [Decorator](#decorator)
+  - [Middleware](#middleware)
 - [Techno](#techno)
   - [NestJs](#nestjs)
   - [ReactJs](#reactjs)
   - [Docker](#docker)
 - [Diagramme C4](#diagramme-c4)
 
-## IMPORTANT
-**Le répertoire possède deux branches :**
-- **main** : contient l'application des différents patterns, un jeux fonctionnel via API et une interface homme machine (bonus).
-- **bonus** : contient l'application jouable en CLI, une clean architecture et des tests unitaires. (les instruction pour lancer l'application en CLI sont dans le README.md de la branche bonus)
-
 ## Le projet, en quelques lignes
 "Skyjo" est un jeu de cartes digitalisé. Le projet consiste en une application web full-stack où les joueurs peuvent créer/rejoindre des parties avec leurs amis. L'objectif du jeu est d'avoir le score total le plus bas en révélant et en remplaçant des cartes de sa main. Le projet est sur une architecture monorepo avec une API en NestJS, une interface utilisateur frontend en ReactJs, et des conteneurs Docker pour simplifier le développement.
 
-## Membres : 
+## Membres
 - DUPUY Tom
 - MENGELATTE Guillaume
 
 ## Lancer le projet
 
-### Prerequis
+### Prérequis
 - Node.js
 - PNPM package manager (`npm install -g pnpm`)
 - Docker et Docker Compose
