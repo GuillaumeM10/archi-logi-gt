@@ -66,7 +66,7 @@ From project root:
 
 ## Les Patterns utilisés
 ### Singleton
-Le pattern Singleton est utilisé pour la classe `GameService` afin de garantir qu'il n'y ait qu'une seule instance de la classe en cours d'exécution. Cela permet de partager l'état du jeu entre les différentes parties de l'application. Ansi que la base de données Postgres et Redis qui est instanciée une seule fois dans le fichier `app.module.ts` et est injectée dans les services.
+Le pattern Singleton est utilisé pour la classe `GameService` afin de garantir qu'il n'y ait qu'une seule instance de la classe en cours d'exécution. Cela permet de partager l'état du jeu entre les différentes parties de l'application. Ainsi que la base de données Postgres et Redis qui est instanciée une seule fois dans le fichier `app.module.ts` et est injectée dans les services.
 
 ### State
 Le pattern State est utilisé pour gérer l'état du jeu. Chaque partie de jeu est associée à un état de jeu qui est stocké en base de donnée ("PLAYING" / "PAUSED" / "FINISHED" ). Cela permet de gérer les transitions de l'état du jeu de manière propre et de garantir que les actions des joueurs sont valides.
