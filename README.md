@@ -4,7 +4,7 @@ ___
 ## IMPORTANT
 **Le répertoire possède deux branches :**
 - **main** : contient l'application des différents patterns, un jeu fonctionnel via API et une interface homme machine (bonus).
-- **bonus** : contient l'application jouable en CLI, une clean architecture et des tests unitaires. (les instruction pour lancer l'application en CLI sont dans le README.md de la branche bonus)
+- **CLI** : contient l'application jouable en CLI, une clean architecture et des tests unitaires. (les instruction pour lancer l'application en CLI sont dans le README.md de la branche bonus)
 ___
 
 
