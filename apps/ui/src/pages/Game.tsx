@@ -234,7 +234,6 @@ const GamePage = () => {
       </div>
     );
   }
-  console.log(game);
 
   return (
     <div className="game-container">
