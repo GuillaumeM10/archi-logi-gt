@@ -74,6 +74,9 @@ Le pattern State est utilisé pour gérer l'état du jeu. Chaque partie de jeu e
 ### Decorator
 Le pattern Decorator est utilisé pour les contrôleurs de l'API. Les décorateurs sont utilisés pour définir les routes, les middlewares, les paramètres de requête, etc. Cela permet de séparer la logique de routage de la logique métier ("@Public", "AuthenticationGuard").
 
+### Middleware
+Les middlewares sont utilisés pour gérer les requêtes entrantes et sortantes. Ils sont utilisés pour la validation des données, l'authentification, la gestion des erreurs, etc. Cela permet de séparer la logique de routage de la logique métier.
+
 ## Techno:
 ### NestJs
 NestJS a été choisi comme framework backend pour :
