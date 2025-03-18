@@ -1,5 +1,6 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsString } from "class-validator";
 import { PartialType } from "@nestjs/mapped-types";
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export enum Role {
   ADMIN = "ADMIN",
@@ -9,14 +10,22 @@ export enum Role {
 }
 
 export class CreateUserDto {
+  @ApiProperty({ description: 'User email', example: 'user@example.com' })
   @IsNotEmpty()
   @IsEmail()
   email: string;
 
+  @ApiProperty({ description: 'User password', example: 'Password123' })
   @IsNotEmpty()
   @IsString()
   password: string;
 
+  @ApiPropertyOptional({
+    description: 'User role',
+    enum: Role,
+    default: Role.USER,
+    example: Role.USER
+  })
   @IsEnum(Role)
   role: Role = Role.USER;
 

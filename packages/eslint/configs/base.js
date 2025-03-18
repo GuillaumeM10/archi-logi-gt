@@ -40,7 +40,6 @@ export default tseslint.config(js.configs.recommended, {
     eqeqeq: ['error', 'smart'],
     camelcase: 'off',
 
-    // Handled by perfectionist
     'sort-imports': 'off',
   },
 });

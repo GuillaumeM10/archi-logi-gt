@@ -1,5 +1,5 @@
 {
-  "name": "yday_spottobe",
+  "name": "archi-logi-gt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:api": "pnpm --filter api start:dev",
     "lint:api": "pnpm --filter api link",
-    "build:packages": "pnpm --filter @spottobe/dtos build"
+    "dev:ui": "pnpm --filter ui dev",
+    "lint:ui": "pnpm --filter ui lint",
+    "build:api": "pnpm --filter api build",
+    "build:packages": "pnpm --filter @archi-logi-gt/dtos build"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,6 @@
     ]
   },
   "dependencies": {
-    "yday_spottobe": "file:"
+    "archi-logi-gt": "file:"
   }
 }
