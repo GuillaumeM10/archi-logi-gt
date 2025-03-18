@@ -11,7 +11,7 @@ import { CreateGameDto, JoinGameDto, PlayerActionDto, UpdateGameDto } from '@arc
 @ApiTags('game')
 @ApiBearerAuth()
 @Controller('game')
-@UseInterceptors(ClassSerializerInterceptor) // For proper handling of @Exclude in User entity
+@UseInterceptors(ClassSerializerInterceptor)
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
@@ -43,7 +43,6 @@ export class GameController {
         password: { type: 'string' },
         ownerId: { type: 'number' },
         status: { type: 'string', enum: ['PLAYING', 'PAUSED', 'FINISHED'] },
-        // Define other properties
       }
     }
   })

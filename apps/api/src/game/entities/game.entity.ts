@@ -24,7 +24,7 @@ export class Game {
   @ApiProperty({
     description: 'Game creator',
     type: 'object',
-    additionalProperties: false // Add this property
+    additionalProperties: false
   })
   @ManyToOne(() => User, user => user.ownedGames, { lazy: true })
   owner: Promise<User>;
@@ -34,7 +34,7 @@ export class Game {
     type: 'array',
     items: {
       type: 'object',
-      additionalProperties: false // Add this property
+      additionalProperties: false
     }
   })
   @ManyToMany(() => User, user => user.participatingGames, { lazy: true })
