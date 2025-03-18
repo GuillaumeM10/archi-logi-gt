@@ -323,6 +323,7 @@
 
 .game-instructions ul {
   padding-left: 20px;
+  list-style: none;
 }
 
 .game-instructions li {
