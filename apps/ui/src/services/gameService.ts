@@ -1,45 +1,38 @@
 import api from './api';
-import {
-  Game,
-  CreateGameDto,
-  JoinGameDto,
-  PlayerActionDto,
-  Status
-} from '@archi-logi-gt/dtos';
 
 const gameService = {
-  createGame: async (createGameDto: CreateGameDto): Promise<Game> => {
-    const response = await api.post<Game>('/game', createGameDto);
+  createGame: async (createGameDto: any): Promise<any> => {
+    const response = await api.post<any>('/game', createGameDto);
     return response.data;
   },
 
-  getGames: async (): Promise<Game[]> => {
-    const response = await api.get<Game[]>('/game');
+  getGames: async (): Promise<any[]> => {
+    const response = await api.get<any[]>('/game');
     return response.data;
   },
 
-  getGame: async (id: string): Promise<Game> => {
-    const response = await api.get<Game>(`/game/${id}`);
+  getGame: async (id: string): Promise<any> => {
+    const response = await api.get<any>(`/game/${id}`);
     return response.data;
   },
 
-  joinGame: async (joinGameDto: JoinGameDto): Promise<Game> => {
-    const response = await api.post<Game>('/game/join', joinGameDto);
+  joinGame: async (joinGameDto: any): Promise<any> => {
+    const response = await api.post<any>('/game/join', joinGameDto);
     return response.data;
   },
 
-  takeAction: async (actionDto: PlayerActionDto): Promise<Game> => {
-    const response = await api.post<Game>('/game/action', actionDto);
+  takeAction: async (actionDto: any): Promise<any> => {
+    const response = await api.post<any>('/game/action', actionDto);
     return response.data;
   },
 
-  pauseGame: async (id: string): Promise<Game> => {
-    const response = await api.post<Game>(`/game/${id}/pause`);
+  pauseGame: async (id: string): Promise<any> => {
+    const response = await api.post<any>(`/game/${id}/pause`);
     return response.data;
   },
 
-  resumeGame: async (id: string): Promise<Game> => {
-    const response = await api.post<Game>(`/game/${id}/resume`);
+  resumeGame: async (id: string): Promise<any> => {
+    const response = await api.post<any>(`/game/${id}/resume`);
     return response.data;
   },
 };

@@ -2,19 +2,24 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import gameService from '../services/gameService';
-import { Status, Cards, GameItem, JoinGameFormData, CreateGameFormData } from '@archi-logi-gt/dtos/gameClient';
+// import { GameItem, JoinGameFormData, CreateGameFormData } from '@archi-logi-gt/dtos/';
+// import { Status } from '@archi-logi-gt/dtos/dist/gameDto';
 
 const LobbyPage = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [games, setGames] = useState<GameItem[]>([]);
+  const [games, setGames] = useState<any[]>([]);
+  // const [games, setGames] = useState<GameItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [showJoinForm, setShowJoinForm] = useState(false);
-  const [selectedGame, setSelectedGame] = useState<GameItem | null>(null);
-  const [joinFormData, setJoinFormData] = useState<JoinGameFormData>({ gameId: '', password: '' });
-  const [createFormData, setCreateFormData] = useState<CreateGameFormData>({ title: '', password: '' });
+  const [selectedGame, setSelectedGame] = useState<any | null>(null);
+  // const [selectedGame, setSelectedGame] = useState<GameItem | null>(null);
+  const [joinFormData, setJoinFormData] = useState<any>({ gameId: '', password: '' });
+  // const [joinFormData, setJoinFormData] = useState<JoinGameFormData>({ gameId: '', password: '' });
+  const [createFormData, setCreateFormData] = useState<any>({ title: '', password: '' });
+  // const [createFormData, setCreateFormData] = useState<CreateGameFormData>({ title: '', password: '' });
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -40,7 +45,8 @@ const LobbyPage = () => {
       const newGame = await gameService.createGame({
         title: createFormData.title,
         password: createFormData.password,
-        status: Status.PLAYING,
+        status: "PLAYING",
+        // status: Status.PLAYING,
         playerIds: []
       });
 
@@ -66,7 +72,8 @@ const LobbyPage = () => {
     }
   };
 
-  const handleSelectGame = (game: GameItem) => {
+  const handleSelectGame = (game: any) => {
+    // const handleSelectGame = (game: GameItem) => {
     setSelectedGame(game);
     setJoinFormData({ gameId: String(game.id), password: '' });
     setShowJoinForm(true);
@@ -205,7 +212,8 @@ const LobbyPage = () => {
                   </div>
                 </div>
                 <div className="game-actions">
-                  {game.status === Status.PLAYING && (
+                  {game.status === "PLAYING" && (
+                  // {game.status === Status.PLAYING && (
                     <button onClick={() => handleSelectGame(game)}>Join</button>
                   )}
                   <button onClick={() => navigate(`/game/${game.id}`)}>View</button>

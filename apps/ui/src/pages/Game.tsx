@@ -2,20 +2,38 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import gameService from '../services/gameService';
-import { Status, Cards, GameState, Score, PlayerCards, CardInfo } from '@archi-logi-gt/dtos/gameClient';
+// import { Status, Cards, GameState } from '@archi-logi-gt/dtos/gameClient';
 import './Game.css';
 
-
+enum Cards {
+  MNUS_2 = "MNUS_2",
+  MNUS_1 = "MNUS_1",
+  ZERO = "ZERO",
+  ONE = "ONE",
+  TWO = "TWO",
+  THREE = "THREE",
+  FOUR = "FOUR",
+  FIVE = "FIVE",
+  SIX = "SIX",
+  SEVEN = "SEVEN",
+  EIGHT = "EIGHT",
+  NINE = "NINE",
+  TEN = "TEN",
+  ELEVEN = "ELEVEN",
+  TWELVE = "TWELVE",
+}
 
 const GamePage = () => {
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [game, setGame] = useState<GameState | null>(null);
+  // const [game, setGame] = useState<GameState | null>(null);
+  const [game, setGame] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
-  const [discardCard, setDiscardCard] = useState<Cards | null>(null);
+  // const [discardCard, setDiscardCard] = useState<Cards | null>(null);
+  const [discardCard, setDiscardCard] = useState<any | null>(null);
   const [refreshInterval, setRefreshInterval] = useState<number | null>(null);
 
   const loadGameData = async () => {
@@ -130,9 +148,11 @@ const GamePage = () => {
       setLoading(true);
       let updatedGame;
 
-      if (game.status === Status.PLAYING) {
+      if (game.status === "PLAYING") {
+        // if (game.status === Status.PLAYING) {
         updatedGame = await gameService.pauseGame(id);
-      } else if (game.status === Status.PAUSED) {
+      // } else if (game.status === Status.PAUSED) {
+      } else if (game.status === "PAUSED") {
         updatedGame = await gameService.resumeGame(id);
       }
 
@@ -157,11 +177,23 @@ const GamePage = () => {
       case Cards.MNUS_2: return -2;
       case Cards.MNUS_1: return -1;
       case Cards.ZERO: return 0;
-      default: return parseInt(card.replace(/[^0-9]/g, ''), 10);
-    }
+      case Cards.ONE: return 1;
+      case Cards.TWO: return 2;
+      case Cards.THREE: return 3;
+      case Cards.FOUR: return 4;
+      case Cards.FIVE: return 5;
+      case Cards.SIX: return 6;
+      case Cards.SEVEN: return 7;
+      case Cards.EIGHT: return 8;
+      case Cards.NINE: return 9;
+      case Cards.TEN: return 10;
+      case Cards.ELEVEN: return 11;
+      case Cards.TWELVE: return 12;
+      default: return null;}
   };
 
-  const getCardColorClass = (card: Cards | null) => {
+  const getCardColorClass = (card: any | null) => {
+    // const getCardColorClass = (card: Cards | null) => {
     if (!card) return 'card-unknown';
 
     const value = getCardValue(card);
@@ -201,6 +233,7 @@ const GamePage = () => {
       </div>
     );
   }
+  console.log(game);
 
   return (
     <div className="game-container">
@@ -214,10 +247,12 @@ const GamePage = () => {
           {user?.id === game.ownerId && (
             <button
               onClick={handleGameStatusToggle}
-              disabled={game.status === Status.FINISHED}
+              // disabled={game.status === Status.FINISHED}
+              disabled={game.status === "PLAYING"}
               className="status-toggle-btn"
             >
-              {game.status === Status.PLAYING ? 'Pause Game' : 'Resume Game'}
+              {game.status === "PLAYING" ? 'Pause Game' : 'Resume Game'}
+              {/* {game.status === Status.PLAYING ? 'Pause Game' : 'Resume Game'} */}
             </button>
           )}
           <button onClick={handleBackToLobby} className="back-btn">
@@ -251,7 +286,7 @@ const GamePage = () => {
           <div className="players-info">
             <h3>Players</h3>
             <ul>
-              {game.players.map((player) => (
+              {game.__players__.map((player) => (
                 <li
                   key={player.id}
                   className={`player ${player.id === game.currentPlayerId ? 'current-turn' : ''} ${player.id === user?.id ? 'you' : ''}`}
@@ -276,7 +311,8 @@ const GamePage = () => {
                     <div className="card empty-deck">Empty</div>
                   )}
                 </div>
-                {isMyTurn && game.status === Status.PLAYING && (
+                {/* {isMyTurn && game.status === Status.PLAYING && ( */}
+                {isMyTurn && game.status === "PLAYING" && (
                   <button onClick={handleDraw} disabled={!!discardCard || game.deck.length === 0}>
                     Draw Card
                   </button>
