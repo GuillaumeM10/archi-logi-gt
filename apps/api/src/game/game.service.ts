@@ -197,6 +197,10 @@ export class GameService {
       throw new BadRequestException('Card is already revealed');
     }
 
+    if (playerCards[cardPosition].card === null && game.deck.length > 0) {
+      playerCards[cardPosition].card = game.deck.pop();
+    }
+
     playerCards[cardPosition].revealed = true;
 
     if (playerCards.every(card => card.revealed)) {

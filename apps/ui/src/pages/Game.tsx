@@ -206,8 +206,9 @@ const GamePage = () => {
     return 'card-high';
   };
 
+  // Fix player mapping in getPlayerName function
   const getPlayerName = (playerId: number) => {
-    const player = game?.players.find(p => p.id === playerId);
+    const player = game?.__players__?.find(p => p.id === playerId);
     if (!player) return 'Unknown Player';
     return player.id === user?.id ? 'You' : player.email;
   };
@@ -247,12 +248,10 @@ const GamePage = () => {
           {user?.id === game.ownerId && (
             <button
               onClick={handleGameStatusToggle}
-              // disabled={game.status === Status.FINISHED}
-              disabled={game.status === "PLAYING"}
+              disabled={game.status === "FINISHED"}
               className="status-toggle-btn"
             >
               {game.status === "PLAYING" ? 'Pause Game' : 'Resume Game'}
-              {/* {game.status === Status.PLAYING ? 'Pause Game' : 'Resume Game'} */}
             </button>
           )}
           <button onClick={handleBackToLobby} className="back-btn">
@@ -348,7 +347,9 @@ const GamePage = () => {
                     onClick={() => handleCardSelect(card.position)}
                   >
                     {card.revealed ? (
-                      <span className="card-value">{getCardValue(card.card)}</span>
+                      <span className="card-value">
+                        {card.card ? getCardValue(card.card) : '?'}
+                      </span>
                     ) : (
                       <span className="card-back-text">?</span>
                     )}
