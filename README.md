@@ -32,6 +32,7 @@
 ## Le projet, en quelques lignes
 
 "Skyjo" est un jeu de cartes digitalisé. Le projet consiste en une application web full-stack où les joueurs peuvent créer/rejoindre des parties avec leurs amis. L'objectif du jeu est d'avoir le score total le plus bas en révélant et en remplaçant des cartes de sa main. Le projet est sur une architecture monorepo avec une API en NestJS, une interface utilisateur frontend en ReactJs, et des conteneurs Docker pour simplifier le développement.
+Règles du jeux : **https://cdn.1j1ju.com/medias/ee/b8/88-skyjo-regle.pdf**
 
 ## Membres
 
