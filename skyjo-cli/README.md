@@ -1,98 +1,49 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Projet Skyjo - version CLI
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+___
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## IMPORTANT
 
-## Description
+**Le répertoire possède deux branches :**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **main** : contient l'application des différents patterns, un jeu fonctionnel via API et une interface homme machine (
+  bonus).
+- **CLI** : contient l'application jouable en CLI, une clean architecture et des tests unitaires. (les instruction pour
+  lancer l'application en CLI sont dans le README.md de la branche bonus)
 
-## Project setup
+___
 
-```bash
-$ pnpm install
-```
+## Changements par rapport au projet sur #main
 
-## Compile and run the project
+### Lancement du projet
 
-```bash
-# development
-$ pnpm run start
+1. Se situer dans le répertoire skyjo-cli ```cd skyjo-cli```
+2. Installer les dépendances ```pnpm i```
+3. Lancer le projet ```pnpm start:dev```
 
-# watch mode
-$ pnpm run start:dev
+### Comment jouer
 
-# production mode
-$ pnpm run start:prod
-```
+Dans le terminal, une fois le programme lancé, vous serez guidé. Le but reste le même que sur la branche main : terminer
+la partie avec le score le plus faible, en échangeant ou révélant les cartes de son jeu. 
+<br> 
+Cette fois, tout se passe dans le terminal, via des inputs numériques (sauf les noms des joueurs).
 
-## Run tests
+### L'architecture
 
-```bash
-# unit tests
-$ pnpm run test
+Sur cette branche, l'architecture mise en place est la **clean archi**, avec la séparation des services, entités et la partie infrasctructure (pas de BDD ici, seules les inputs via CLI sont gérées)
 
-# e2e tests
-$ pnpm run test:e2e
+### Tests
 
-# test coverage
-$ pnpm run test:cov
-```
+De plus sur cette branche, des tests sont présents afin de couvrir les différents aspects du domain. 
+Le service de jeu n'est pas testé (on aurait pu vérifier que les appels se font bien aux entités), car moins important que vraiment bien tester les entités, avec toutes les features disponibles.
+<br>
+De plus, dans les tests seuls les fichiers de la clean archi sont inclus (pas le main.ts, pas les fichiers à la racine)
+<br> 
+<br> 
+Une feature importante, difficile à illustrer lors des démos ou du jeu : si un joueur arrive à faire une colonne avec 3 cartes de la même valeur, alros cette colonne disparait et la défausse se voit ajouter les 3 cartes suppriées.
+Cette feature est testée, cela permet de tester ce corner case.
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ pnpm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Afin de lancer les tests, executez les commandes suivantes:
+1. ```cd skyjo-ci```
+2. ```pnpm test``` (pour simplement run les tests)
+3. ```pnpm test:cov``` (pour run les tests et afficher le coverage globale de l'application)
