@@ -32,7 +32,7 @@ describe('Game', () => {
     test("ne doit pas démarrer avec moins de 2 joueurs", () => {
         game.addPlayer(new Player("Alice"));
         game.startGame();
-        expect(game.started).toBe(true);
+        expect(game.started).toBe(false);
     });
 
     test("doit démarrer correctement avec au moins 2 joueurs", () => {
