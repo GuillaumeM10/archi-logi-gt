@@ -21,11 +21,10 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Move to project
-        run: cd skyjo-cli
-
       - name: Install dependencies
         run: pnpm install
+        working-directory: skyjo-cli
 
       - name: Run tests
         run: pnpm test
+        working-directory: skyjo-cli
